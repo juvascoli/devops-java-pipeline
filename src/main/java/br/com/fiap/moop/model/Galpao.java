@@ -7,10 +7,12 @@ import java.util.List;
 
 @Data
 @Entity
+@Table(name = "galpao")
 public class Galpao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_galpao")
     private Long id;
 
     private String localizacao; // Local onde o galpão está situado
