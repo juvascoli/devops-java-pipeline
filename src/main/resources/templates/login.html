@@ -14,14 +14,15 @@
         <div class="row">
             
             <form  th:action="@{/login}" method="post">
-				Username: <input class="form-control" type="text" id="username" name="username"><br>
+            <p>Login do Funcionário<p/>
+				Usuário: <input class="form-control" type="text" id="username" name="username"><br>
 				Senha: <input class="form-control" type="password" id="password" name="password"><br>
 				
 				<div th:if="${param.falha}">
-					<p style="color:red;"><b>Username ou senha inválidos</b></p>
+					<p style="color:red;"><b>Usuários ou senha inválidos</b></p>
 				</div><br>
 				
-            	<button type="submit">Logar</button>
+            	<button type="submit">Entrar</button>
             </form>
             
         </div>

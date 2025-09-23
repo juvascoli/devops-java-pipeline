@@ -12,7 +12,7 @@ import br.com.fiap.moop.model.Usuario;
 import br.com.fiap.moop.repository.UsuarioRepository;
 
 @Controller
-public class UsuarioController {
+public class UsuarioControllerMvc {
 
 	@Autowired
 	private PasswordEncoder encoder;
@@ -36,7 +36,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/insere_usuario")
-	public ModelAndView inserirUsuario(Usuario usuario, @RequestParam(name = "id_funcao") Long id_funcao) {
+	public ModelAndView inserirUsuario(Usuario usuario) {
 
 		usuario.setSenha(encoder.encode(usuario.getSenha()));
 

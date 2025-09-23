@@ -2,6 +2,10 @@ INSERT INTO usuario(nome_perfil, username, senha)
 VALUES ('Admin', 'admin', '$2a$12$YcxBeQKXPK.06QNckf.YMeGVm8h.EazFMyURfIDFRHc554uvM3v9K');
 
 
+INSERT INTO usuario(nome_perfil, username, senha) 
+VALUES ('julia', 'julia', '$2a$12$YcxBeQKXPK.06QNckf.YMeGVm8h.EazFMyURfIDFRHc554uvM3v9K');
+
+
 INSERT INTO galpao (localizacao, capacidade, motos_ocupadas) 
 VALUES ('São Paulo - Zona Leste', 100, 45);
 

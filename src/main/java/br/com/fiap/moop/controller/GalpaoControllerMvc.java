@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,15 +13,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.moop.DTO.GalpaoDTO;
 import br.com.fiap.moop.model.Galpao;
 import br.com.fiap.moop.service.GalpaoService;
 
-@RestController
+@Controller
 @RequestMapping("/galpoes")
-public class GalpaoController {
+public class GalpaoControllerMvc {
 
     @Autowired
     private GalpaoService galpaoService;
