@@ -19,7 +19,7 @@ import br.com.fiap.moop.model.Moto;
 import br.com.fiap.moop.service.MotoService;
 
 @RestController
-@RequestMapping("/motos")
+@RequestMapping("/api/motos")
 public class MotoController {
 
     @Autowired

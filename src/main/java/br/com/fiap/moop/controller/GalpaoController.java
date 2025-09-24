@@ -19,7 +19,7 @@ import br.com.fiap.moop.model.Galpao;
 import br.com.fiap.moop.service.GalpaoService;
 
 @RestController
-@RequestMapping("/galpoes")
+@RequestMapping("/api/galpoes")
 public class GalpaoController {
 
     @Autowired

@@ -16,7 +16,7 @@ public class SegurancaConfig {
 		http.authorizeHttpRequests((request) -> request.requestMatchers("/usuario/novo"
 				).hasAuthority("ADMIN").				
 				anyRequest().authenticated()) 
-			.formLogin( (login) -> login.loginPage("/login").defaultSuccessUrl("/home/index", true)
+			.formLogin( (login) -> login.loginPage("/login").defaultSuccessUrl("/motos/index", true)
 					.failureUrl("/login?falha=true").permitAll())
 			.logout( (logout) -> logout.logoutUrl("/logout").logoutSuccessUrl("/login?logout=true")
 					.permitAll())
