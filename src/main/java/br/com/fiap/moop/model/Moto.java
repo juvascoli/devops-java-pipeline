@@ -1,6 +1,15 @@
 package br.com.fiap.moop.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -22,7 +31,8 @@ public class Moto {
     private String chassi;
 
     @NotBlank
-    private String modelo;
+    @Enumerated(EnumType.STRING)
+    private EnumModelo modelo;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -30,7 +40,7 @@ public class Moto {
 
     // Relacionamento com Galpão
     @ManyToOne
-    @JoinColumn(name = "galpao_id")
+    @JoinColumn(name = "id_galpao")
     private Galpao galpao;
 
 }

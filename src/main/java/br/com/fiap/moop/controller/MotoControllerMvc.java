@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.fiap.moop.model.Galpao;
 import br.com.fiap.moop.model.Moto;
 import br.com.fiap.moop.model.Usuario;
+import br.com.fiap.moop.repository.GalpaoRepository;
 import br.com.fiap.moop.repository.MotoRepository;
 import br.com.fiap.moop.repository.UsuarioRepository;
 import br.com.fiap.moop.service.MotoService;
@@ -35,12 +37,15 @@ public class MotoControllerMvc {
     @Autowired
 	private UsuarioRepository repU;
     
+    @Autowired
+    private GalpaoRepository repG;
+    
     @GetMapping("/index")
     public ModelAndView popularIndex() {
+        ModelAndView mv = new ModelAndView("motos/index");
 
-        ModelAndView mv = new ModelAndView("home/index"); // remove "/" inicial
-
-        List<Moto> motos = repM.findAll(); // lista de motos
+        List<Moto> motos = repM.findAll();
+        List<Galpao> galpoes = repG.findAll();
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         Optional<Usuario> op = repU.findByUsername(auth.getName());
@@ -49,7 +54,8 @@ public class MotoControllerMvc {
             mv.addObject("usuario", op.get());
         }
 
-        mv.addObject("motos", motos); // variavel plural para lista
+        mv.addObject("motos", motos);
+        mv.addObject("galpoes", galpoes);
 
         return mv;
     }

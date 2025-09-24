@@ -9,6 +9,6 @@ public class MotoDTO {
     private String chassi;
     private String modelo;
     private String status;
-    private Long galpaoId;
+    private Long id_galpao;
 }
 

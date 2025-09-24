@@ -2,7 +2,6 @@ package br.com.fiap.moop.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 import java.util.List;
 
 @Data
@@ -15,15 +14,17 @@ public class Galpao {
     @Column(name = "id_galpao")
     private Long id;
 
-    private String localizacao; // Local onde o galpão está situado
+    private String nome;
 
-    private int capacidade; // Capacidade total do galpão
+    private String localizacao;
+
+    private int capacidade;
 
     @Column(name = "motos_ocupadas")
-    private int motosOcupadas; // Número de motos atualmente armazenadas
+    private int motosOcupadas;
 
-    @OneToMany(mappedBy = "galpao", cascade = CascadeType.ALL)
-    private List<Moto> motos; // Lista de motos armazenadas neste galpão
+    @OneToMany(mappedBy = "galpao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Moto> motos;
 
     public boolean podeAdicionarMoto() {
         return motosOcupadas < capacidade;

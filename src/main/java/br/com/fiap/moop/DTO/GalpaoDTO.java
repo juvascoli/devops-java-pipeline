@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class GalpaoDTO {
+	private String nome;
     private Long id;
     private String localizacao;
     private int capacidade;
