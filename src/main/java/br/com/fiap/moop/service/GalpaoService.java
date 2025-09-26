@@ -84,5 +84,10 @@ public class GalpaoService {
         return dto;
     }
 
+	public void deletarPorId(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

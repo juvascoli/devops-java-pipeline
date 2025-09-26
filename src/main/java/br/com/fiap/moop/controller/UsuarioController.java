@@ -12,7 +12,7 @@ import br.com.fiap.moop.model.Usuario;
 import br.com.fiap.moop.repository.UsuarioRepository;
 
 @Controller
-public class UsuarioControllerMvc {
+public class UsuarioController {
 
 	@Autowired
 	private PasswordEncoder encoder;

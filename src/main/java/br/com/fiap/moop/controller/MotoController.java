@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,17 +16,49 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
+import br.com.fiap.moop.model.Galpao;
 import br.com.fiap.moop.model.Moto;
+import br.com.fiap.moop.model.Usuario;
+import br.com.fiap.moop.repository.GalpaoRepository;
+import br.com.fiap.moop.repository.MotoRepository;
+import br.com.fiap.moop.repository.UsuarioRepository;
 import br.com.fiap.moop.service.MotoService;
 
-@RestController
-@RequestMapping("/api/motos")
+@Controller
+@RequestMapping("/motos")
 public class MotoController {
 
     @Autowired
     private MotoService motoService;
+    @Autowired
+	private MotoRepository repM;
+    @Autowired
+	private UsuarioRepository repU;
+    
+    @Autowired
+    private GalpaoRepository repG;
+    
+    @GetMapping("/index")
+    public ModelAndView popularIndex() {
+        ModelAndView mv = new ModelAndView("motos/index");
+
+        List<Moto> motos = repM.findAll();
+        List<Galpao> galpoes = repG.findAll();
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Optional<Usuario> op = repU.findByUsername(auth.getName());
+
+        if (op.isPresent()) {
+            mv.addObject("usuario", op.get());
+        }
+
+        mv.addObject("motos", motos);
+        mv.addObject("galpoes", galpoes);
+
+        return mv;
+    }
 
     // Criar Moto
     @PostMapping
