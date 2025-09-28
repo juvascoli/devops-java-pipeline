@@ -37,14 +37,11 @@
                  <a th:href="@{/galpoes/detalhes/{id}(id=${galpao.id})}" class="btn btn-sm btn-success">
                       Detalhes
                     </a></div>
-                    <a th:href="@{/galpoes/edicao/{id}(id=${galpao.id})}" class="btn btn-sm btn-primary">
+                    <a th:href="@{/galpoes/editar/{id}(id=${galpao.id})}" class="btn btn-sm btn-primary">
                         Editar
                     </a>
-                    <a th:href="@{/galpoes/deletar/{id}(id=${galpao.id})}" 
-                       class="btn btn-sm btn-danger"
-                       onclick="return confirm('Tem certeza que deseja excluir este galpão?')">
-                        Excluir
-                    </a>
+                    <a th:href="@{/galpoes/deletar/{id}(id=${galpao.id})}" class="btn btn-danger">Excluir</a>
+</form>
                 </div>         
             </div>
         </div>

@@ -8,4 +8,5 @@ public class GalpaoDTO {
     private Long id;
     private String localizacao;
     private int capacidade;
+    private int motosOcupadas; 
 }

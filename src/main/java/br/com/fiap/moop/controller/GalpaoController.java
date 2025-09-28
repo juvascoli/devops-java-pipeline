@@ -36,7 +36,7 @@ public class GalpaoController {
         Galpao galpao = galpaoService.findById(id) // método que retorna o Galpao (não DTO)
                 .orElseThrow(() -> new RuntimeException("Galpão não encontrado"));
         model.addAttribute("galpao", galpao);
-        return "galpoes/detalhes"; // templates/galpoes/detalhes.html
+        return "galpoes/detalhes"; 
     }
 
     @GetMapping("/novo")
@@ -48,27 +48,27 @@ public class GalpaoController {
     @PostMapping
     public String salvarGalpao(@ModelAttribute GalpaoDTO galpaoDTO) {
         galpaoService.saveFromDTO(galpaoDTO);
-        return "redirect:/galpoes";
+        return "redirect:/motos/index";
     }
 
-    @GetMapping("/edicao/{id}")
+    @GetMapping("/editar/{id}")
     public String editarGalpaoForm(@PathVariable Long id, Model model) {
         GalpaoDTO galpao = galpaoService.buscarPorId(id)
                 .orElseThrow(() -> new RuntimeException("Galpão não encontrado"));
         model.addAttribute("galpao", galpao);
-        return "galpao-form"; 
+        return "galpoes/edicao"; 
     }
 
-    @PostMapping("/edicao/{id}")
+    @PostMapping("/atualizar/{id}")
     public String atualizarGalpao(@PathVariable Long id, @ModelAttribute GalpaoDTO galpaoDTO) {
         galpaoDTO.setId(id);
         galpaoService.saveFromDTO(galpaoDTO);
-        return "redirect:/galpoes";
+        return "redirect:/motos/index";
     }
 
     @GetMapping("/deletar/{id}")
     public String deletarGalpao(@PathVariable Long id) {
-        galpaoService.deletarPorId(id);
-        return "redirect:/galpoes";
+        galpaoService.delete(id);
+        return "redirect:/motos/index";
     }
 }
