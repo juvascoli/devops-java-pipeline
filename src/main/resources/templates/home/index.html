@@ -34,10 +34,10 @@
 
                 <!-- Botões de ação -->
                 <div class="actions mt-3">
-                    <a th:href="@{/galpoes/{id}(id=${galpao.id})}" class="btn btn-sm btn-success">
-                        Mais detalhes
-                    </a>
-                    <a th:href="@{/galpoes/editar/{id}(id=${galpao.id})}" class="btn btn-sm btn-primary">
+                 <a th:href="@{/galpoes/detalhes/{id}(id=${galpao.id})}" class="btn btn-sm btn-success">
+                      Detalhes
+                    </a></div>
+                    <a th:href="@{/galpoes/edicao/{id}(id=${galpao.id})}" class="btn btn-sm btn-primary">
                         Editar
                     </a>
                     <a th:href="@{/galpoes/deletar/{id}(id=${galpao.id})}" 
@@ -45,11 +45,10 @@
                        onclick="return confirm('Tem certeza que deseja excluir este galpão?')">
                         Excluir
                     </a>
-                </div>
-
+                </div>         
             </div>
         </div>
-    </div>
+               
     <div>    <script th:replace="~{fragmentos :: script-js}" /></div>
 
 

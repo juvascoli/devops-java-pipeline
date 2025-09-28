@@ -42,7 +42,7 @@ public class MotoController {
     
     @GetMapping("/index")
     public ModelAndView popularIndex() {
-        ModelAndView mv = new ModelAndView("motos/index");
+        ModelAndView mv = new ModelAndView("home/index");
 
         List<Moto> motos = repM.findAll();
         List<Galpao> galpoes = repG.findAll();

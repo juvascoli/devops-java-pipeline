@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.fiap.moop.DTO.GalpaoDTO;
+import br.com.fiap.moop.model.Galpao;
 import br.com.fiap.moop.service.GalpaoService;
 
 @Controller
@@ -21,7 +22,7 @@ public class GalpaoController {
     @Autowired
     private GalpaoService galpaoService;
 
-    // ✅ Listar todos os galpões (para a página galpoes.html)
+    // ✅ Listar todos os galpões
     @GetMapping
     public String listarGalpoes(Model model) {
         List<GalpaoDTO> galpoes = galpaoService.listarTodos();
@@ -29,15 +30,14 @@ public class GalpaoController {
         return "galpoes/index"; 
     }
 
-    // ✅ Buscar galpão por ID e exibir detalhes
-    @GetMapping("/{id}")
-    public String buscarGalpaoPorId(@PathVariable Long id, Model model) {
-        GalpaoDTO galpao = galpaoService.buscarPorId(id)
+    // ✅ Exibir detalhes do galpão
+    @GetMapping("/detalhes/{id}")
+    public String detalhes(@PathVariable Long id, Model model) {
+        Galpao galpao = galpaoService.findById(id) // método que retorna o Galpao (não DTO)
                 .orElseThrow(() -> new RuntimeException("Galpão não encontrado"));
         model.addAttribute("galpao", galpao);
-        return "galpoes/index"; 
+        return "galpoes/detalhes"; // templates/galpoes/detalhes.html
     }
-
 
     @GetMapping("/novo")
     public String novoGalpaoForm(Model model) {
@@ -45,15 +45,13 @@ public class GalpaoController {
         return "galpao-form";
     }
 
-
     @PostMapping
     public String salvarGalpao(@ModelAttribute GalpaoDTO galpaoDTO) {
         galpaoService.saveFromDTO(galpaoDTO);
         return "redirect:/galpoes";
     }
 
-
-    @GetMapping("/editar/{id}")
+    @GetMapping("/edicao/{id}")
     public String editarGalpaoForm(@PathVariable Long id, Model model) {
         GalpaoDTO galpao = galpaoService.buscarPorId(id)
                 .orElseThrow(() -> new RuntimeException("Galpão não encontrado"));
@@ -61,14 +59,13 @@ public class GalpaoController {
         return "galpao-form"; 
     }
 
-    @PostMapping("/editar/{id}")
+    @PostMapping("/edicao/{id}")
     public String atualizarGalpao(@PathVariable Long id, @ModelAttribute GalpaoDTO galpaoDTO) {
         galpaoDTO.setId(id);
         galpaoService.saveFromDTO(galpaoDTO);
         return "redirect:/galpoes";
     }
 
-    // ✅ Deletar galpão
     @GetMapping("/deletar/{id}")
     public String deletarGalpao(@PathVariable Long id) {
         galpaoService.deletarPorId(id);
