@@ -1,5 +1,7 @@
 package br.com.fiap.moop.DTO;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -9,4 +11,11 @@ public class GalpaoDTO {
     private String localizacao;
     private int capacidade;
     private int motosOcupadas; 
+    
+    private List<MotoDTO> motos;
+
+	public void setMotos(List<Object> collect) {
+		// TODO Auto-generated method stub
+		
+	} 
 }

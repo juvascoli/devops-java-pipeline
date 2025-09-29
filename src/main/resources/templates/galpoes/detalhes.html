@@ -22,7 +22,6 @@
         <p><b>Motos Ocupadas:</b> <span th:text="${galpao.motosOcupadas}">45</span></p>
     </div>
 
-    <!-- Lista de motos -->
     <h4>Motos deste Galpão</h4>
     <table class="table table-striped shadow-sm">
         <thead class="table-dark">
@@ -33,24 +32,17 @@
             </tr>
         </thead>
         <tbody>
-   
             <tr th:each="moto : ${galpao.motos}">
-            
-            
-                <td th:text="${moto.id}">1</td>
-
-                <!-- Modelo exibindo getDescricao -->
-                <td th:text="${moto.modelo.descricao}">Mottu Sport</td>
-
-                <!-- Status exibindo getDescricao -->
-                <td th:text="${moto.status.descricao}">Disponível</td>
+                <td th:text="${moto.id}"></td>
+                <td th:text="${moto.modelo.descricao}"></td>
+                <td th:text="${moto.status.descricao}"></td>
             </tr>
         </tbody>
     </table>
 
     <!-- Botões -->
     <div class="d-flex justify-content-between mt-4">
-        <a th:href="@{/home/index}" class="btn btn-secondary">Voltar</a>
+        <a th:href="@{/motos/index}" class="btn btn-secondary">Voltar</a>
         <a th:href="@{/galpoes/editar/{id}(id=${galpao.id})}" class="btn btn-primary">Editar Galpão</a>
     </div>
 
