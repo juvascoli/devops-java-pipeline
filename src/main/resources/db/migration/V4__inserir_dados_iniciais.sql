@@ -1,11 +1,11 @@
 
 
 
-INSERT INTO usuario(nome_perfil, username, senha) 
-VALUES ('Admin', 'admin', '$2a$12$YcxBeQKXPK.06QNckf.YMeGVm8h.EazFMyURfIDFRHc554uvM3v9K');
+INSERT INTO usuario(role, username, senha) 
+VALUES ('ADMIN', 'admin', '$2a$12$YcxBeQKXPK.06QNckf.YMeGVm8h.EazFMyURfIDFRHc554uvM3v9K');
 
-INSERT INTO usuario(nome_perfil, username, senha) 
-VALUES ('julia', 'julia', '$2a$12$b7XewJvZ/Th7DLQoqAq9NOMgfl8K72Pg/WsnosdRyuikqRphI.Fua');
+INSERT INTO usuario(role, username, senha) 
+VALUES ('USER', 'julia', '$2a$12$b7XewJvZ/Th7DLQoqAq9NOMgfl8K72Pg/WsnosdRyuikqRphI.Fua');
 
 
 INSERT INTO galpao (nome, localizacao, capacidade, motos_ocupadas) 
@@ -124,9 +124,9 @@ VALUES ('STU8V67', '4XYZZZ321KT008990', 'INATIVA', 'MOTTUSPORT', 8);
 INSERT INTO moto (placa, chassi, status, modelo, id_galpao) 
 VALUES ('VWX9Y12', '3CDZZZ321KT009876', 'ATIVA', 'MOTTUE', 9);
 INSERT INTO moto (placa, chassi, status, modelo, id_galpao) 
-VALUES ('VWX10Y12', '3CDZZZ321KT009877', 'MANUTENCAO', 'MOTTUPOP', 9);
+VALUES ('VWX10Y1', '3CDZZZ321KT009877', 'MANUTENCAO', 'MOTTUPOP', 9);
 INSERT INTO moto (placa, chassi, status, modelo, id_galpao) 
-VALUES ('VWX11Y12', '3CDZZZ321KT009878', 'INATIVA', 'MOTTUE', 9);
+VALUES ('VWX11Y1', '3CDZZZ321KT009878', 'INATIVA', 'MOTTUE', 9);
 INSERT INTO moto (placa, chassi, status, modelo, id_galpao) 
-VALUES ('VWX12Y12', '3CDZZZ321KT009879', 'ATIVA', 'MOTTUSPORT', 9);
+VALUES ('VWX12Y1', '3CDZZZ321KT009879', 'ATIVA', 'MOTTUSPORT', 9);
 

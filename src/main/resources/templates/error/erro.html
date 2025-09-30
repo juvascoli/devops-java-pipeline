@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho('Erro')}">
+</head>
+
+
+ 
+ 
+<body class=" d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 ">
+        <h3 class="card-title text-center text-danger">Ops! Ocorreu um erro</h3>
+        <p class="text-center" th:text="${erro.mensagem}">Mensagem de erro.</p>
+        <p class="text-center text-muted" th:if="${erro.campo != null}" 
+           th:text="'Campo: ' + ${erro.campo}"></p>
+
+        <div class="text-center mt-3">
+            <a th:href="@{motos/index}" class="btn btn-primary">Voltar para a página inicial</a>
+        </div>
+    </div>
+
+</body>
+
+
+<footer>
+ <div th:replace="~{fragmentos :: footer}" />
+
+</footer>

@@ -1,11 +1,18 @@
 package br.com.fiap.moop.controller;
 
-import br.com.fiap.moop.DTO.GalpaoDTO;
-import br.com.fiap.moop.service.GalpaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.fiap.moop.DTO.GalpaoDTO;
+import br.com.fiap.moop.service.GalpaoService;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/galpoes")
@@ -47,17 +54,29 @@ public class GalpaoController {
         return "galpoes/edicao"; 
     }
 
-    // Atualizar ou salvar (usa o mesmo saveFromDTO)
+    // Atualizar galpão com validação
     @PostMapping("/atualizar/{id}")
-    public String atualizarGalpao(@PathVariable Long id, @ModelAttribute GalpaoDTO galpaoDTO) {
+    public String atualizarGalpao(@PathVariable Long id,
+                                  @Valid @ModelAttribute GalpaoDTO galpaoDTO,
+                                  BindingResult result) {
+        if (result.hasErrors()) {
+            throw new IllegalArgumentException(result.getAllErrors().get(0).getDefaultMessage());
+        }
+
         galpaoDTO.setId(id);
         galpaoService.saveFromDTO(galpaoDTO);
         return "redirect:/motos/index";
     }
 
-    // Criar novo
+ // Salvar galpão 
     @PostMapping("/salvar")
-    public String salvarGalpao(@ModelAttribute GalpaoDTO galpaoDTO) {
+    public String salvarGalpao(@Valid @ModelAttribute GalpaoDTO galpaoDTO,
+                               BindingResult result) {
+        if (result.hasErrors()) {
+            // Lança exceção capturada pelo ControllerAdvice
+            throw new IllegalArgumentException(result.getAllErrors().get(0).getDefaultMessage());
+        }
+
         galpaoService.saveFromDTO(galpaoDTO);
         return "redirect:/motos/index";
     }

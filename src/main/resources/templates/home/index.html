@@ -1,21 +1,20 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragmentos :: cabecalho('Galpões')}">
-
-<!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    
 </head>
-<body class="container mt-4">
-    <div th:replace="~{fragmentos :: form-logout}" />
 
-    <div style="text-align: left;">
-    	<img th:src="@{/img/mottu-logo.png}" alt="Logo da instituição" 
-    	style="width: 150px; height: auto;">
-    </div>
+
+<body class="container mt-4">
+    <div th:replace="~{fragmentos :: header}" /> </div>
+    
 
     <div class="row justify-content-center">
+    
+    <div> 
+    <a th:href="@{/galpoes/novo}" class="bi bi-plus-circle">
+                        Novo
+                    </a>
+     </div>
         <!-- Itera sobre a lista de galpoes -->
         <div class="col-md-4 col-sm-6 mb-4 mt-4 d-flex" th:each="galpao : ${galpoes}">
             <div class="galpao-card w-100">
@@ -28,24 +27,29 @@
                 </div>
 
                 <!-- Botões de ação -->
-                <div class="actions mt-3" style="font-size: 1rem">
+                <div class="actions mt-3" style="font-size: 3rem">
                  <a th:href="@{/galpoes/detalhes/{id}(id=${galpao.id})}" class="btn btn-sm btn-success" >
                       Detalhes
                     </a>
                     </div>
                     <a th:href="@{/galpoes/editar/{id}(id=${galpao.id})}" class="bi bi-pencil-fill">
-                        Editar
+                        
                     </a>
-                     <a th:href="@{/galpoes/editar/{id}(id=${galpao.id})}" class="bi bi-plus-circle">
-                        Novo
-                    </a>
-                    <a th:href="@{/galpoes/deletar/{id}(id=${galpao.id})}" class="bi bi-dash-circle">Excluir</a>
+                   <a th:href="@{/galpoes/deletar/{id}(id=${galpao.id})}" class="bi bi-dash-circle text-danger"></a>
                 </div>         
             </div>
         </div>
                
-    <div>    <script th:replace="~{fragmentos :: script-js}" /></div>
-
+       <div>   
+        <script th:replace="~{fragmentos :: script-js}" />
+    
+        </div>
+       
 
 </body>
+
+<footer>
+ <div th:replace="~{fragmentos :: footer}" />
+
+</footer>
 </html>

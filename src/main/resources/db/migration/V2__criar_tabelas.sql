@@ -23,5 +23,6 @@ CREATE TABLE moto (
         nome_perfil varchar(255),
         senha varchar(255),
         username varchar(255),
+        role varchar(20),
         primary key (id)
     );

@@ -13,8 +13,9 @@ public class SegurancaConfig {
 	@Bean
 	public SecurityFilterChain filtrar(HttpSecurity http) throws Exception {
 		
-		http.authorizeHttpRequests((request) -> request.requestMatchers("/img/**").permitAll().requestMatchers("/galpoes/novo"
-				).hasAuthority("ADMIN").				
+		http.authorizeHttpRequests((request) -> request.requestMatchers("/img/**").permitAll().requestMatchers("/galpoes/novo", "/galpoes/editar/**",
+				"/galpoes/deletar/**"
+				).hasRole("ADMIN").				
 				anyRequest().authenticated()) 
 			.formLogin( (login) -> login.loginPage("/login").defaultSuccessUrl("/motos/index", true)
 					.failureUrl("/login?falha=true").permitAll())

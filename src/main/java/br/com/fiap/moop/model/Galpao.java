@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
@@ -23,8 +24,11 @@ public class Galpao {
     @Column(name = "id_galpao")
     private Long id;
 
+    @NotBlank
     private String nome;
 
+    
+    @NotBlank
     private String localizacao;
     
     @PositiveOrZero (message="O valor de capacidade não pode ser negativo")
