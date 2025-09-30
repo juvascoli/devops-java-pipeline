@@ -103,14 +103,14 @@ public class GalpaoService {
         // Calcula motos ocupadas
         dto.setMotosOcupadas(galpao.getMotos() != null ? galpao.getMotos().size() : 0);
 
-        // Lista de motos
+        // Lista de motos -> converte para MotoDTO
         if (galpao.getMotos() != null) {
-            dto.setMotos(
-                galpao.getMotos()
-                      .stream()
-                      .map(this::convertMotoToDTO)
-                      .collect(Collectors.toList())
-            );
+        	dto.setMotos(
+        		    galpao.getMotos()
+        		          .stream()
+        		          .map(this::convertMotoToDTO)
+        		          .collect(Collectors.toList())
+        		);
         }
 
         return dto;
@@ -121,12 +121,19 @@ public class GalpaoService {
         MotoDTO dto = new MotoDTO();
         dto.setId(moto.getId());
         dto.setPlaca(moto.getPlaca());
-        dto.setModelo(moto.getModelo());
-        dto.setStatus(moto.getStatus());
+        dto.setChassi(moto.getChassi());
+
+        if (moto.getModelo() != null) {
+            dto.setModelo(moto.getModelo().getDescricao());
+        }
+        if (moto.getStatus() != null) {
+            dto.setStatus(moto.getStatus().getDescricao());
+        }
         return dto;
     }
 
     public void deletarPorId(Long id) {
         galpaoRepository.deleteById(id);
     }
+    
 }

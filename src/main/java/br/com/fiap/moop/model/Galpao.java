@@ -22,8 +22,8 @@ public class Galpao {
 
     @Column(name = "motos_ocupadas")
     private int motosOcupadas;
-
-    @OneToMany(mappedBy = "galpao", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    
+    @OneToMany(mappedBy = "galpao", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Moto> motos;
 
     public boolean podeAdicionarMoto() {
@@ -42,5 +42,22 @@ public class Galpao {
         if (motosOcupadas > 0) {
             motosOcupadas--;
         }
+    }
+    
+    public void setMotos(List<Moto> motos) {
+        this.motos.clear();
+        if (motos != null) {
+            motos.forEach(this::addMoto);
+        }
+    }
+
+    public void addMoto(Moto moto) {
+        motos.add(moto);
+        moto.setGalpao(this);
+    }
+
+    public void removeMoto(Moto moto) {
+        motos.remove(moto);
+        moto.setGalpao(null);
     }
 }
