@@ -13,7 +13,7 @@ public class SegurancaConfig {
 	@Bean
 	public SecurityFilterChain filtrar(HttpSecurity http) throws Exception {
 		
-		http.authorizeHttpRequests((request) -> request.requestMatchers("/usuario/novo"
+		http.authorizeHttpRequests((request) -> request.requestMatchers("/galpoes/novo"
 				).hasAuthority("ADMIN").				
 				anyRequest().authenticated()) 
 			.formLogin( (login) -> login.loginPage("/login").defaultSuccessUrl("/motos/index", true)

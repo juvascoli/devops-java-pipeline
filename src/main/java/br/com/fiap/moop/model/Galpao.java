@@ -44,20 +44,5 @@ public class Galpao {
         }
     }
     
-    public void setMotos(List<Moto> motos) {
-        this.motos.clear();
-        if (motos != null) {
-            motos.forEach(this::addMoto);
-        }
-    }
 
-    public void addMoto(Moto moto) {
-        motos.add(moto);
-        moto.setGalpao(this);
-    }
-
-    public void removeMoto(Moto moto) {
-        motos.remove(moto);
-        moto.setGalpao(null);
-    }
 }
