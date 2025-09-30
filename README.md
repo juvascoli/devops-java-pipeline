@@ -14,13 +14,15 @@ Ele simula um sistema interno de gerenciamento de ativos para empresas que opera
 
 ## Tecnologias Utilizadas
 
-- **Java 17**
+- **Java 21**
 - **Spring Boot**
   - Spring Web
   - Spring Data JPA
   - Spring Cache
 - **Banco de Dados H2 (memória)**
 - **Lombok** para simplificar a criação de classes
+- **Spring Security**
+- **Flyway**
 
 
 ---
