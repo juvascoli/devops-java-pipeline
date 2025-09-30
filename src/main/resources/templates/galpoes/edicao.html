@@ -39,7 +39,7 @@
         </div>
 
         <div class="d-flex justify-content-between mt-3">
-            <a th:href="@{/motos/index}" class="bi bi-arrow-return-left"></a>
+            <div th:replace="~{fragmentos :: btn-voltar}" />
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
     </form>

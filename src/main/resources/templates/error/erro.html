@@ -13,9 +13,7 @@
         <p class="text-center text-muted" th:if="${erro.campo != null}" 
            th:text="'Campo: ' + ${erro.campo}"></p>
 
-        <div class="text-center mt-3">
-            <a th:href="@{motos/index}" class="btn btn-primary">Voltar para a página inicial</a>
-        </div>
+         <div th:replace="~{fragmentos :: btn-voltar}" />
     </div>
 
 </body>
