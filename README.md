@@ -7,16 +7,32 @@ Ele simula um sistema interno de gerenciamento de ativos para empresas que opera
 
 ---
 ## Desenvolvedores
-- **Julia Vasconcelos || RM:558785 ||Turma: 2TDSPF**
+- **Julia Vasconcelos || RM:558785 || Turma: 2TDSPF**
 - **Leonardo Cadena || RM:557528 || Turma: 2TDSPV**
 - **Davi Gonzaga || RM:554890 || Turma: 2TDSPV**
+
+## Usuários e credenciais 
+### Usuário administrador (acesso total)
+
+- Usuário: admin
+
+- Senha: admin
+
+**Descrição: possui acesso a todas as funcionalidades do sistema.**
+
+### Usuário com acesso limitado
+
+- Usuário: julia
+
+- Senha: julia123
+
+**Descrição: conta com permissões restritas.**
 
 ## Tecnologias Utilizadas
 
 - **Java**
 - **Spring Boot**
   - Spring Data JPA
-  - Spring Cache
   - Spring Security
 - **Lombok** para simplificar a criação de classes
 - **Flyway**
@@ -41,7 +57,6 @@ Ele simula um sistema interno de gerenciamento de ativos para empresas que opera
   - **Chassi**
   - **Modelo**
   - **Status**
--  Implementação de **caching** com Spring Cache para otimizar performance nas consultas
   
 
 ---
