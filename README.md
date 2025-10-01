@@ -52,11 +52,15 @@ Ele simula um sistema interno de gerenciamento de ativos para empresas que opera
         - Adicionar
 - Rotas protegidas por Spring Security
 - Exceções
+- Sistema de autenticação via formulário (login e logout)
+- Fragmentos
 - Busca de motos por:
   - **Placa**
   - **Chassi**
   - **Modelo**
   - **Status**
+
+    
   
 
 ---
