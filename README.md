@@ -2,15 +2,14 @@
 
 ##  Descrição
 
-Este projeto é uma aplicação Spring Boot desenvolvida para gerenciar o controle de **motos** e **galpões**, com funcionalidades completas de cadastro, consulta (com caching), paginação e integração com banco de dados H2. 
-
+Este projeto é uma aplicação Spring Boot desenvolvida para gerenciar o controle de **motos** e **galpões**, com funcionalidades completas de cadastro.
 Ele simula um sistema interno de gerenciamento de ativos para empresas que operam com frotas de motos, como locadoras ou serviços de logística.
 
 ---
 ## Desenvolvedores
 - **Julia Vasconcelos || RM:558785 ||Turma: 2TDSPF**
 - **Leonardo Cadena || RM:557528 || Turma: 2TDSPV**
-- **Davi Gonzaga|| RM:554890 || Turma: 2TDSPV**
+- **Davi Gonzaga || RM:554890 || Turma: 2TDSPV**
 
 ## Tecnologias Utilizadas
 
