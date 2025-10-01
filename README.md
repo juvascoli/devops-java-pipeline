@@ -8,21 +8,20 @@ Ele simula um sistema interno de gerenciamento de ativos para empresas que opera
 
 ---
 ## Desenvolvedores
-- **Julia Vasconcelos RM:558785 Turma: 2TDSPF**
-- **Leonardo Cadena RM:557528 Turma: 2TDSPV**
-- **Davi Gonzaga RM:554890 Turma: 2TDSPV**
+- **Julia Vasconcelos || RM:558785 ||Turma: 2TDSPF**
+- **Leonardo Cadena || RM:557528 || Turma: 2TDSPV**
+- **Davi Gonzaga|| RM:554890 || Turma: 2TDSPV**
 
 ## Tecnologias Utilizadas
 
-- **Java 21**
+- **Java**
 - **Spring Boot**
-  - Spring Web
   - Spring Data JPA
   - Spring Cache
-- **Banco de Dados H2 (memória)**
+  - Spring Security
 - **Lombok** para simplificar a criação de classes
-- **Spring Security**
 - **Flyway**
+- **Thymeleaf**
 
 
 ---
@@ -31,18 +30,26 @@ Ele simula um sistema interno de gerenciamento de ativos para empresas que opera
 
 - Cadastro e atualização de **motos**
 - Gerenciamento de **galpões** (local de armazenamento)
+     - Crud de Galpões
+        - Listar 
+        - Editar
+        - Excluir
+        - Adicionar
+- Rotas protegidas por Spring Security
+- Exceções
 - Busca de motos por:
   - **Placa**
   - **Chassi**
   - **Modelo**
   - **Status**
 -  Implementação de **caching** com Spring Cache para otimizar performance nas consultas
+  
 
 ---
 
 
 ### Pré-requisitos:
-- JDK 17 instalado
+- JDK instalado
 - Maven ou Gradle
 - IDE (IntelliJ, Eclipse, VSCode)
 
